@@ -1,0 +1,71 @@
+<div class="card bg-dark text-white">
+
+ <div class="card-body p-5">
+    <div class="row">
+      {{#each images}}
+        <div class="col-md-12 text-center mb-3">
+          <div class="video-card">
+              <div class="video-card-image">
+                  <a class="play-icon" href="#">
+                  <span class="fas material-icons" >
+                    play_arrow
+                  </span>                              
+                  </a>
+                  <a href="/images/{{uniqueId}}">
+                    <video
+                    src="/uploads/{{filename}}"
+                      alt="{{title}}"
+                      class="w-100 h-100"
+                      style="object-fit: cover;"
+                    />
+                  </a>
+              </div>
+
+              <div class="video-card-body">
+                  <div class="video-title">
+                    <a href="#">Title: </a>
+        
+                    <a href="#">{{title}}</a>
+                  </div>
+                  <div class="video-description">
+                        <a href="#">{{description}}</a>
+                  </div>
+                              {{!-- <div class="video-page text-success">
+                                 Education  <a title="" data-placement="top" data-toggle="tooltip" href="#" data-original-title="Verified">
+                                  <i class="fas fa-check-circle text-success">
+
+                                  </i></a>
+                              </div> --}}
+                  <div class="video-view">
+                        classifications: 18 age &nbsp;  
+                  </div>
+              </div>
+
+                        
+              <div class="video-card-body">
+
+				          <form class="create-post">
+					          {{!-- <div class="profile-photo">
+						          <img src="./public/images/avator.jpeg">
+					          </div> --}}
+					          <input id="create-post" type="text" placeholder="What`s on your mind?" />
+					          <input type="submit" value="Post" class="post-btn post-btn-primary">
+				          </form>
+              </div>
+          </div>
+
+        </div>
+
+      {{else}}
+        <div class="text-light text-center p-5">
+          <h1 class="text-light">There are no Videos <strong>yet</strong></h1>
+          <p>Upload your first Video</p>
+          <span class="material-icons" style="font-size: 7rem;">
+            add_a_photo
+          </span>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+
+</div>

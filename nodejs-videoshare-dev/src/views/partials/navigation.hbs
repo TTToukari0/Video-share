@@ -1,0 +1,93 @@
+
+
+<nav class="navbar navbar-expand navbar-dark bg-dark p-2 static-top  sticky-top">  
+  <div class="container">
+    
+    <a class="navbar-brand" href="/">
+      <h2 class="card-title text-white" >
+				VideoShare
+			</h2> 
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar Search -->
+    {{!-- <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0">
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for...">
+               <div class="input-group-append">
+                  <button class="btn btn-light" type="button">
+                    <i class="material-icons" >search</i>
+                  </button>
+               </div>
+            </div>
+    </form> --}}
+
+         <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-5 my-2 my-md-0 ">
+            <div class="input-group">
+               <input type="text" class="form-control" placeholder="Search for...">
+               <div class="input-group-append">
+                  <button class="btn btn-light" type="button">
+                  <i class="material-icons" >search</i>
+                  </button>
+               </div>
+            </div>
+         </form>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        {{#unless user}}
+          <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="/auth/signin">
+              <span class="material-icons me-2">
+                account_circle
+              </span>
+              SignIn</a>
+          </li>
+        {{else}}
+
+
+      {{#if user.is_creator}}
+            <li class="nav-item">
+            <a class="nav-link d-flex align-items-center" href="/video/upload">
+              <span class="material-icons me-2">
+                cloud_upload
+              </span>
+              Upload Video       
+            </a>
+            </li>             
+
+      {{/if}}          
+            
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="/#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              {{user.email}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="/profile">Settings</a>
+              <a class="dropdown-item" href="/auth/logout">Logout</a>
+            </div>
+          </li>
+        {{/unless}}
+      </ul>
+    </div>
+  </div>
+</nav>
